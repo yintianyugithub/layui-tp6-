@@ -1,4 +1,58 @@
-logins
+<link rel="stylesheet" href="__STATIC__/layui256/css/layui.css">
+<link rel="stylesheet" href="__CSS__/common.css">
+<script type="text/javascript" src="__STATIC__/layui256/layui.js"></script>
+<ul class="layui-nav" style="text-align: right;">
+    <li class="layui-nav-item">
+        <a href="">控制台<span class="layui-badge">9</span></a>
+    </li>
+    <li class="layui-nav-item">
+        <a href="">版本更新<span class="layui-badge-dot"></span></a>
+    </li>
+</ul>
+<div class="login-div">
+    <div class="layui-container">
+        <div class="layui-col-md7">
+        </div>
+        <div class="layui-col-md5 login layui-col-md-offset6">
+            <form class="layui-form layui-form-pane">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" pane>
+                    <label class="layui-form-label">记住登录</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="1" title="是">
+                        <input type="radio" name="sex" value="2" title="否" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="formLogin">立即登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formLogin)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+
 {block name="script"}
     <script type="text/javascript">
         layui.config({
